@@ -8,6 +8,7 @@ extern motor_group RightMotor;
 extern motor_group LeftMotor;
 extern motor Motor5;
 extern motor Motor6;
+extern motor Motor7;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

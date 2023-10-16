@@ -15,6 +15,7 @@
 // LeftMotor            motor_group   3, 4            
 // Motor5               motor         5               
 // Motor6               motor         6               
+// Motor7               motor         7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -110,6 +111,15 @@ void usercontrol(void) {
       Motor5.stop();
       Motor6.stop();
     }
+
+    if (Controller1.ButtonLeft.pressing()) {
+      Motor7.spin(forward);
+    } else if (Controller1.ButtonRight.pressing()) {
+      Motor7.spin(reverse);
+    } else {
+      Motor7.stop();
+    }
+
     
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
