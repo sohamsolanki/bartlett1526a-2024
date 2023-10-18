@@ -15,7 +15,7 @@
 // LeftMotor            motor_group   3, 4            
 // Motor5               motor         5               
 // Motor6               motor         6               
-// Motor7               motor         7               
+// Motor8               motor         8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -70,37 +70,19 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+void setLeftDrive (vex::directionType type, int percentage) {
+  LeftMotor.spin(type, percentage, vex::velocityUnits::pct);
+}
+
+void setRightDrive (vex::directionType type, int percentage) {
+  RightMotor.spin(type, percentage, vex::velocityUnits::pct);
+}
 
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-    if (Controller1.Axis3.position() > 0) {
-      LeftMotor.setVelocity(50, percent);
-      LeftMotor.spin(reverse);
-    } else if (Controller1.Axis3.position() < 0) {
-      LeftMotor.spin(forward);
-    } else {
-      LeftMotor.stop();
-    }
-
-    if (Controller1.Axis2.position() > 0) {
-      RightMotor.setVelocity(50, percent);
-      RightMotor.spin(forward);
-    } else if (Controller1.Axis2.position () < 0) {
-      RightMotor.spin(reverse);
-    } else {
-      RightMotor.stop();
-    }
-
-    if (Controller1.Axis3.position() > 0 && Controller1.Axis2.position() < 0) {
-      LeftMotor.setVelocity(20, percent);
-      RightMotor.setVelocity(20, percent);
-    }
-
-    if (Controller1.Axis3.position() < 0 && Controller1.Axis2.position() > 0) {
-      LeftMotor.setVelocity(20, percent);
-      RightMotor.setVelocity(20, percent);
-    }
+    setLeftDrive (vex::directionType::fwd, Controller1.Axis3.value());
+    setRightDrive (vex::directionType::fwd, Controller1.Axis2.value());
 
     if (Controller1.ButtonR2.pressing()) {
       Motor5.setVelocity(100, percent);
@@ -113,22 +95,13 @@ void usercontrol(void) {
     }
 
     if (Controller1.ButtonLeft.pressing()) {
-      Motor7.spin(forward);
+      Motor8.setVelocity(100, percent);
+      Motor8.spin(forward);
     } else if (Controller1.ButtonRight.pressing()) {
-      Motor7.spin(reverse);
+      Motor8.spin(reverse);
     } else {
-      Motor7.stop();
+      Motor8.stop();
     }
-
-    
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
-
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
