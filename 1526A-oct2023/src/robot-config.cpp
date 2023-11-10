@@ -17,7 +17,9 @@ motor LeftMotorMotorB = motor(PORT4, ratio18_1, false);
 motor_group LeftMotor = motor_group(LeftMotorMotorA, LeftMotorMotorB);
 motor Motor5 = motor(PORT5, ratio18_1, true);
 motor Motor6 = motor(PORT6, ratio18_1, false);
-motor Motor8 = motor(PORT8, ratio6_1, false);
+motor Right2 = motor(PORT8, ratio6_1, false);
+motor Left2 = motor(PORT7, ratio6_1, true);
+digital_out Intake = digital_out(Brain.ThreeWirePort.A);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

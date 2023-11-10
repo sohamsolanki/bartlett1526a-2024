@@ -15,7 +15,9 @@
 // LeftMotor            motor_group   3, 4            
 // Motor5               motor         5               
 // Motor6               motor         6               
-// Motor8               motor         8               
+// Right2               motor         8               
+// Left2                motor         7               
+// Intake               digital_out   A               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -87,6 +89,7 @@ void setLeftDriveExpo (vex::directionType type, int percentage) {
     percentage = -percentage;
   }
   LeftMotor.spin(type, percentage, vex::velocityUnits::pct);
+  Right2.spin(type, percentage, vex::velocityUnits::pct);
 }
 void setRightDriveExpo (vex::directionType type, int percentage) {
   if (percentage >= 0) {
@@ -97,7 +100,22 @@ void setRightDriveExpo (vex::directionType type, int percentage) {
     percentage = -percentage;
   }
   RightMotor.spin(type, percentage, vex::velocityUnits::pct);
+  Left2.spin(type, percentage, vex::velocityUnits::pct);
 }
+
+bool switchOn = false;
+bool switchOff = true;
+
+void intakeon(void) {
+  switchOn = true;
+  switchOff = false;
+}
+
+void intakeoff(void) {
+  switchOn = false;
+  switchOff = true;
+}
+
 
 void usercontrol(void) {
   // User control code here, inside the loop
@@ -105,7 +123,7 @@ void usercontrol(void) {
     setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
     setRightDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
 
-    if (Controller1.ButtonR2.pressing()) {
+    if (Controller1.ButtonL2.pressing()) {
       Motor5.setVelocity(100, percent);
       Motor6.setVelocity(100, percent);
       Motor5.spin(forward);
@@ -115,15 +133,17 @@ void usercontrol(void) {
       Motor6.stop();
     }
 
-    if (Controller1.ButtonLeft.pressing()) {
-      Motor8.setVelocity(100, percent);
-      Motor8.spin(forward);
-    } else if (Controller1.ButtonRight.pressing()) {
-      Motor8.spin(reverse);
-    } else {
-      Motor8.stop();
+    if(switchOn == true){
+      Intake.set(true);
     }
 
+    if(switchOff == true){
+      Intake.set(false);
+    }
+
+    Controller1.ButtonA.pressed(intakeon);
+    Controller1.ButtonY.pressed(intakeoff);
+ 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
