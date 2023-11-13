@@ -11,6 +11,8 @@ extern motor Motor6;
 extern motor Right2;
 extern motor Left2;
 extern digital_out Intake;
+extern digital_out PistonLeft;
+extern digital_out PistonRight;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
