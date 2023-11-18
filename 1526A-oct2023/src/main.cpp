@@ -43,25 +43,59 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  /* LeftMotor.spin(forward);
+  LeftMotor.setVelocity(250, rpm);
+  RightMotor.setVelocity(250, rpm);
+  Left2.setVelocity(250, rpm);
+  Right2.setVelocity(250, rpm);
+  
+  LeftMotor.spin(reverse);
+  RightMotor.spin(reverse);
+  Left2.spin(reverse);
+  Right2.spin(reverse);
+  wait(1.8, sec);
+
+  LeftMotor.spin(forward);
   RightMotor.spin(forward);
   Left2.spin(forward);
   Right2.spin(forward);
-  wait(1.97, sec);
-  LeftMotor.stop();
-  RightMotor.stop();
-  Left2.stop();
-  Right2.stop(); */
+  wait(0.5, sec);
+
+  LeftMotor.setVelocity(270, rpm);
+  RightMotor.setVelocity(270, rpm);
+  Left2.setVelocity(270, rpm);
+  Right2.setVelocity(270, rpm);
   
-  LeftMotor.spin(forward);
+  LeftMotor.spin(reverse);
   RightMotor.spin(reverse);
   Left2.spin(reverse);
+  Right2.spin(reverse);
+  wait(0.8, sec);
+
+  LeftMotor.spin(forward);
+  RightMotor.spin(forward);
+  Left2.spin(forward);
   Right2.spin(forward);
-  wait(1.95, sec);
+  wait(1.2, sec);
+  
   LeftMotor.stop();
   RightMotor.stop();
   Left2.stop();
   Right2.stop();
+
+  /* LeftMotor.spin(forward);
+  Left2.spin(reverse);
+  RightMotor.spin(reverse);
+  Right2.spin(forward);
+  wait(0.5, sec);
+  LeftMotor.spin(reverse);
+  RightMotor.spin(reverse);
+  Left2.spin(reverse);
+  Right2.spin(reverse);
+  wait(0.5, sec);
+  LeftMotor.stop();
+  RightMotor.stop();
+  Left2.stop();
+  Right2.stop(); */
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
