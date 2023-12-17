@@ -132,15 +132,24 @@ void setRightDriveExpo (vex::directionType type, int percentage) {
 // FUNCTIONS FOR INTAKE //
 bool intakeForward = false;
 bool intakeReverse = true;
+bool intakeOff = true;
 
-void intakeon(void) {
+void intakeforward(void) {
   intakeForward = true;
   intakeReverse = false;
+  intakeOff = false;
+}
+
+void intakereverse(void) {
+  intakeForward = false;
+  intakeReverse = true;
+  intakeOff = false;
 }
 
 void intakeoff(void) {
   intakeForward = false;
-  intakeReverse = true;
+  intakeReverse = false;
+  intakeOff = true;
 }
 
 // FUNCTIONS FOR CATAPULT //
@@ -190,15 +199,44 @@ void usercontrol(void) {
     */
 
     // intake code //
-    if(intakeForward == true){
+    /* if(intakeForward == true){
       Motor6.setVelocity(100, percent);
       Motor6.spin(forward);
+    } else if (intakeForward == false) {
+      Motor6.spin(reverse);
+    } else {
+      Motor6.stop();
     }
 
     if(intakeReverse == true){
       Motor6.setVelocity(100, percent);
       Motor6.spin(reverse);
+    } else if (intakeReverse == false) {
+      Motor6.spin(forward);
+    } else {
+      Motor6.stop();
     }
+
+     
+    if(intakeOff == true){
+      Motor6.setVelocity(0, percent);
+      Motor6.stop();
+    }
+
+    */
+
+    if(Controller1.ButtonR2.pressing()) {
+      Motor6.setVelocity(100, percent);
+      Motor6.spin(forward);
+    } else if (Controller1.ButtonR1.pressing()) {
+      Motor6.setVelocity(100, percent);
+      Motor6.spin(reverse);
+    } else {
+      Motor6.stop();
+    }
+  
+
+
 
     /*
     // catapult code //
@@ -229,10 +267,10 @@ void usercontrol(void) {
     */
 
     // calling intake function// 
-    Controller1.ButtonR2.pressed(intakeon);
-    Controller1.ButtonR1.pressed(intakeoff);
+    /* Controller1.ButtonR2.pressed(intakeforward);
+    Controller1.ButtonR1.pressed(intakereverse);
+    Controller1.ButtonL1.pressed(intakeoff); 
 
-    /*
     // calling catapult function //
     Controller1.ButtonY.pressed(pulton);
     Controller1.ButtonA.pressed(pultoff);
