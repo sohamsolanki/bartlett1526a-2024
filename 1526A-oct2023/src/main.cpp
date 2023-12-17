@@ -130,17 +130,17 @@ void setRightDriveExpo (vex::directionType type, int percentage) {
 }
 
 // FUNCTIONS FOR INTAKE //
-bool switchOn = false;
-bool switchOff = true;
+bool intakeForward = false;
+bool intakeReverse = true;
 
 void intakeon(void) {
-  switchOn = true;
-  switchOff = false;
+  intakeForward = true;
+  intakeReverse = false;
 }
 
 void intakeoff(void) {
-  switchOn = false;
-  switchOff = true;
+  intakeForward = false;
+  intakeReverse = true;
 }
 
 // FUNCTIONS FOR CATAPULT //
@@ -190,14 +190,17 @@ void usercontrol(void) {
     */
 
     // intake code //
-    if(switchOn == true){
-      Intake.set(true);
+    if(intakeForward == true){
+      Motor6.setVelocity(100, percent);
+      Motor6.spin(forward);
     }
 
-    if(switchOff == true){
-      Intake.set(false);
+    if(intakeReverse == true){
+      Motor6.setVelocity(100, percent);
+      Motor6.spin(reverse);
     }
 
+    /*
     // catapult code //
     if(cataOn == true) {
       Motor5.setVelocity(40, percent);
@@ -223,11 +226,13 @@ void usercontrol(void) {
       Motor5.stop();
       Motor6.stop();
     }
+    */
 
-    // calling intake function // 
+    // calling intake function// 
     Controller1.ButtonR2.pressed(intakeon);
     Controller1.ButtonR1.pressed(intakeoff);
 
+    /*
     // calling catapult function //
     Controller1.ButtonY.pressed(pulton);
     Controller1.ButtonA.pressed(pultoff);
@@ -235,6 +240,7 @@ void usercontrol(void) {
     // calling piston function //
     Controller1.ButtonLeft.pressed(onon);
     Controller1.ButtonRight.pressed(onoff);
+    */
  
     wait(20, msec); 
   }
