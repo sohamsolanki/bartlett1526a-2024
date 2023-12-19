@@ -10,8 +10,8 @@ extern motor Motor5;
 extern motor Motor6;
 extern motor Right2;
 extern motor Left2;
-extern digital_out Intake;
-extern digital_out PistonLeft;
+extern digital_out Sol1;
+extern digital_out Sol2;
 extern digital_out PistonRight;
 extern rotation Rotati;
 

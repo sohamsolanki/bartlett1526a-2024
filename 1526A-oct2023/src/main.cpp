@@ -8,66 +8,21 @@
 // Motor6               motor         6               
 // Right2               motor         8               
 // Left2                motor         7               
-// Intake               digital_out   A               
-// PistonLeft           digital_out   B               
+// Sol1                 digital_out   A               
+// Sol2                 digital_out   B               
 // PistonRight          digital_out   C               
 // Rotati               rotation      9               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RightMotor           motor_group   1, 2            
-// LeftMotor            motor_group   3, 4            
-// Motor5               motor         5               
-// Motor6               motor         6               
-// Right2               motor         8               
-// Left2                motor         7               
-// Intake               digital_out   A               
-// PistonLeft           digital_out   B               
-// PistonRight          digital_out   C               
-// Rotation9            rotation      9               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RightMotor           motor_group   1, 2            
-// LeftMotor            motor_group   3, 4            
-// Motor5               motor         5               
-// Motor6               motor         6               
-// Right2               motor         8               
-// Left2                motor         7               
-// Intake               digital_out   A               
-// PistonLeft           digital_out   B               
-// PistonRight          digital_out   C               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
 /*    Author:       Soham Solanki and Raiyan Hasan                            */
 /*    Created:      October 15, 2023                                          */
-/*    Description:  1526A - November Code                                     */
+/*    Description:  1526A - December Code                                     */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
 #include "vex.h"
-
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// RightMotor           motor_group   1, 2            
-// LeftMotor            motor_group   3, 4            
-// Motor5               motor         5               
-// Motor6               motor         6               
-// Right2               motor         8               
-// Left2                motor         7               
-// Intake               digital_out   A               
-// PistonLeft           digital_out   B               
-// PistonRight          digital_out   C               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-
 using namespace vex;
 
 competition Competition;
@@ -80,7 +35,6 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   Rotati.setPosition(0.0, degrees);
-
   // All activities that occur before the competition starts goes here
 }
 
@@ -212,18 +166,18 @@ void pultoff(void) {
   cataOff = true;
 }
 
-// FUNCTIONS FOR DOUBLE ACTING PISTONS //
-bool pistOn = false;
-bool pistOff = true;
+// FUNCTIONS FOR SOLENOIDS //
+bool solOn = false;
+bool solOff = true;
 
 void onon(void) {
-  pistOn = true;
-  pistOff = false;
+  solOn = true;
+  solOff = false;
 }
 
 void onoff(void) {
-  pistOn = false;
-  pistOff = true;
+  solOn = false;
+  solOff = true;
 }
 
 void usercontrol(void) {
@@ -280,9 +234,8 @@ void usercontrol(void) {
     } else {
       Motor6.stop();
     }
-  
-    
 
+    
     // catapult code //
     if(cataOn == true) {
       Motor5.setVelocity(100, percent);
@@ -291,31 +244,25 @@ void usercontrol(void) {
     
     if (cataOff == true) {
       Motor5.setVelocity(100, percent);
+      Motor5.spin(forward);
       if(Rotati.position(degrees) >= 12.9) {
-        Motor5.spinToPosition(12.9, degrees);
-      } else {
+        Motor5.setVelocity(0, percent);
         Motor5.stop();
+        }
       }
     }
 
-    /*
     // double acting pistons //
-    if(pistOn == true) {
-      PistonLeft.set(true);
-      PistonRight.set(true);
-            Motor5.setVelocity(40, percent);
-      Motor5.spin(forward);
-      Motor6.setVelocity(40, percent);
-      Motor6.spin(forward);
+    if(solOn == true) {
+      Sol1.set(true);
+      Sol2.set(true);
     }
-    if (pistOff == true) {
-      PistonLeft.set(false);
-      PistonRight.set(false);
-      Motor5.stop();
-      Motor6.stop();
+    if (solOff == true) {
+      Sol1.set(false);
+      Sol2.set(false);
     }
     
-
+    /*
     // calling intake function// 
     Controller1.ButtonR2.pressed(intakeforward);
     Controller1.ButtonR1.pressed(intakereverse);
@@ -326,15 +273,13 @@ void usercontrol(void) {
     Controller1.ButtonLeft.pressed(pulton);
     Controller1.ButtonRight.pressed(pultoff);
 
-    /*
-    // calling piston function //
-    Controller1.ButtonLeft.pressed(onon);
-    Controller1.ButtonRight.pressed(onoff);
-    */
+    // calling solenoid function //
+    Controller1.ButtonL1.pressed(onon);
+    Controller1.ButtonL2.pressed(onoff);
+    
  
     wait(20, msec); 
   }
-}
 
 int main() {
   Competition.autonomous(autonomous);
