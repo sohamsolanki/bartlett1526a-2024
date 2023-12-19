@@ -1,3 +1,47 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RightMotor           motor_group   1, 2            
+// LeftMotor            motor_group   3, 4            
+// Motor5               motor         5               
+// Motor6               motor         6               
+// Right2               motor         8               
+// Left2                motor         7               
+// Intake               digital_out   A               
+// PistonLeft           digital_out   B               
+// PistonRight          digital_out   C               
+// Rotati               rotation      9               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RightMotor           motor_group   1, 2            
+// LeftMotor            motor_group   3, 4            
+// Motor5               motor         5               
+// Motor6               motor         6               
+// Right2               motor         8               
+// Left2                motor         7               
+// Intake               digital_out   A               
+// PistonLeft           digital_out   B               
+// PistonRight          digital_out   C               
+// Rotation9            rotation      9               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// RightMotor           motor_group   1, 2            
+// LeftMotor            motor_group   3, 4            
+// Motor5               motor         5               
+// Motor6               motor         6               
+// Right2               motor         8               
+// Left2                motor         7               
+// Intake               digital_out   A               
+// PistonLeft           digital_out   B               
+// PistonRight          digital_out   C               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -35,6 +79,8 @@ competition Competition;
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  Rotati.setPosition(0.0, degrees);
+
   // All activities that occur before the competition starts goes here
 }
 
@@ -235,20 +281,24 @@ void usercontrol(void) {
       Motor6.stop();
     }
   
+    
 
-
-
-    /*
     // catapult code //
     if(cataOn == true) {
-      Motor5.setVelocity(40, percent);
+      Motor5.setVelocity(100, percent);
       Motor5.spin(forward);
-      Motor6.setVelocity(40, percent);
-      Motor6.spin(forward);
     }
+    
     if (cataOff == true) {
+      Motor5.setVelocity(100, percent);
+      if(Rotati.position(degrees) >= 12.9) {
+        Motor5.spinToPosition(12.9, degrees);
+      } else {
+        Motor5.stop();
+      }
     }
 
+    /*
     // double acting pistons //
     if(pistOn == true) {
       PistonLeft.set(true);
@@ -264,17 +314,19 @@ void usercontrol(void) {
       Motor5.stop();
       Motor6.stop();
     }
-    */
+    
 
     // calling intake function// 
-    /* Controller1.ButtonR2.pressed(intakeforward);
+    Controller1.ButtonR2.pressed(intakeforward);
     Controller1.ButtonR1.pressed(intakereverse);
     Controller1.ButtonL1.pressed(intakeoff); 
+    */
 
     // calling catapult function //
-    Controller1.ButtonY.pressed(pulton);
-    Controller1.ButtonA.pressed(pultoff);
+    Controller1.ButtonLeft.pressed(pulton);
+    Controller1.ButtonRight.pressed(pultoff);
 
+    /*
     // calling piston function //
     Controller1.ButtonLeft.pressed(onon);
     Controller1.ButtonRight.pressed(onoff);
