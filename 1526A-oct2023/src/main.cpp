@@ -43,62 +43,6 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  LeftMotor.setVelocity(250, rpm);
-  RightMotor.setVelocity(250, rpm);
-  Left2.setVelocity(250, rpm);
-  Right2.setVelocity(250, rpm);
-  
-  LeftMotor.spin(reverse);
-  RightMotor.spin(reverse);
-  Left2.spin(reverse);
-  Right2.spin(reverse);
-  wait(1.8, sec);
-
-  LeftMotor.spin(forward);
-  RightMotor.spin(forward);
-  Left2.spin(forward);
-  Right2.spin(forward);
-  wait(0.5, sec);
-
-  LeftMotor.setVelocity(270, rpm);
-  RightMotor.setVelocity(270, rpm);
-  Left2.setVelocity(270, rpm);
-  Right2.setVelocity(270, rpm);
-  
-  LeftMotor.spin(reverse);
-  RightMotor.spin(reverse);
-  Left2.spin(reverse);
-  Right2.spin(reverse);
-  wait(0.8, sec);
-
-  LeftMotor.spin(forward);
-  RightMotor.spin(forward);
-  Left2.spin(forward);
-  Right2.spin(forward);
-  wait(1.2, sec);
-  
-  LeftMotor.stop();
-  RightMotor.stop();
-  Left2.stop();
-  Right2.stop();
-
-  /* LeftMotor.spin(forward);
-  Left2.spin(reverse);
-  RightMotor.spin(reverse);
-  Right2.spin(forward);
-  wait(0.5, sec);
-  LeftMotor.spin(reverse);
-  RightMotor.spin(reverse);
-  Left2.spin(reverse);
-  Right2.spin(reverse);
-  wait(0.5, sec);
-  LeftMotor.stop();
-  RightMotor.stop();
-  Left2.stop();
-  Right2.stop(); */
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
 }
 
 /*---------------------------------------------------------------------------*/
@@ -187,69 +131,12 @@ void usercontrol(void) {
     setRightDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
 
     // catapult code //
-    /* if (Controller1.ButtonL2.pressing()) {
-      Motor5.setVelocity(100, percent);
-      Motor6.setVelocity(25, percent);
-      Motor5.spin(forward);
-      Motor6.spin(forward);
-    } else {
-      Motor5.stop();
-      Motor6.stop();
-    }
-    */
-
-    // intake code //
-    /* if(intakeForward == true){
-      Motor6.setVelocity(100, percent);
-      Motor6.spin(forward);
-    } else if (intakeForward == false) {
-      Motor6.spin(reverse);
-    } else {
-      Motor6.stop();
-    }
-
-    if(intakeReverse == true){
-      Motor6.setVelocity(100, percent);
-      Motor6.spin(reverse);
-    } else if (intakeReverse == false) {
-      Motor6.spin(forward);
-    } else {
-      Motor6.stop();
-    }
-
-     
-    if(intakeOff == true){
-      Motor6.setVelocity(0, percent);
-      Motor6.stop();
-    }
-
-    */
-
-    if(Controller1.ButtonR2.pressing()) {
-      Motor6.setVelocity(100, percent);
-      Motor6.spin(forward);
-    } else if (Controller1.ButtonR1.pressing()) {
-      Motor6.setVelocity(100, percent);
-      Motor6.spin(reverse);
-    } else {
-      Motor6.stop();
-    }
-
-    
-    // catapult code //
-    if(cataOn == true) {
+    if (Controller1.ButtonL2.pressing()) {
       Motor5.setVelocity(100, percent);
       Motor5.spin(forward);
-    }
-    
-    if (cataOff == true) {
-      Motor5.setVelocity(100, percent);
-      Motor5.spin(forward);
-      if(Rotati.position(degrees) >= 12.9) {
-        Motor5.setVelocity(0, percent);
-        Motor5.stop();
-        }
-      }
+    } else if (Controller1.ButtonL1.pressing()) {
+      Motor5.setVelocity(100,percent);
+      Motor5.spin(reverse);
     }
 
     // double acting pistons //
@@ -262,24 +149,13 @@ void usercontrol(void) {
       Sol2.set(false);
     }
     
-    /*
-    // calling intake function// 
-    Controller1.ButtonR2.pressed(intakeforward);
-    Controller1.ButtonR1.pressed(intakereverse);
-    Controller1.ButtonL1.pressed(intakeoff); 
-    */
-
-    // calling catapult function //
-    Controller1.ButtonLeft.pressed(pulton);
-    Controller1.ButtonRight.pressed(pultoff);
-
     // calling solenoid function //
     Controller1.ButtonL1.pressed(onon);
     Controller1.ButtonL2.pressed(onoff);
     
- 
     wait(20, msec); 
   }
+}
 
 int main() {
   Competition.autonomous(autonomous);
