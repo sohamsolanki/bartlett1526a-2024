@@ -8,8 +8,8 @@ using code = vision::code;
 brain  Brain;
 
 // VEXcode device constructors
-digital_out LeftDou = digital_out(Brain.ThreeWirePort.F);
-digital_out RightDou = digital_out(Brain.ThreeWirePort.D);
+digital_out LeftDou = digital_out(Brain.ThreeWirePort.A);
+digital_out RightDou = digital_out(Brain.ThreeWirePort.B);
 controller Controller1 = controller(primary);
 digital_out LeftWing = digital_out(Brain.ThreeWirePort.H);
 digital_out RightWing = digital_out(Brain.ThreeWirePort.G);

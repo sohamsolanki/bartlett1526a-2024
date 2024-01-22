@@ -10,8 +10,8 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// LeftDou              digital_out   F               
-// RightDou             digital_out   D               
+// LeftDou              digital_out   A               
+// RightDou             digital_out   B               
 // Controller1          controller                    
 // LeftWing             digital_out   H               
 // RightWing            digital_out   G               
@@ -48,7 +48,6 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  
   LeftMotor.spin(forward);
   Left2.spin(forward);
   RightMotor.spin(forward);
@@ -97,27 +96,27 @@ void usercontrol(void) {
   while (1) {
 
     // Pneumatics (Wings) functions -- NOT WORKING (as of January 6, 9:49pm.) //
-    if(Controller1.ButtonRight.pressing()) {
+    if(Controller1.ButtonL1.pressing()) {
       LeftDou.set(true);
       RightDou.set(true);
-    } else if (Controller1.ButtonLeft.pressing()) {
+    } else if (Controller1.ButtonL2.pressing()) {
       LeftDou.set(false);
       RightDou.set(false);
     }
 
     // Catapult code -- (as of January 6, 9:33pm.) //
-    if (Controller1.ButtonL2.pressing()) {
+    if (Controller1.ButtonRight.pressing()) {
       CataP.setVelocity(100, percent);
-      CataP.spin(reverse);
-    } else if (Controller1.ButtonL1.pressing()) {
+      CataP.spin(forward);
+    } else if (Controller1.ButtonY.pressing()) {
       CataP.stop();
     }
 
     // Intake code. //
-    if(Controller1.ButtonY.pressing()) {
+    if(Controller1.ButtonR1.pressing()) {
       Intake.setVelocity(100, percent);
       Intake.spin(forward);
-    } else if (Controller1.ButtonA.pressing()) {
+    } else if (Controller1.ButtonR2.pressing()) {
       Intake.setVelocity(100, percent);
       Intake.spin(reverse);
     } else {
