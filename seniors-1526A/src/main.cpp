@@ -2,7 +2,7 @@
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
 /*    Author:       Soham Solanki                                             */
-/*    Created:      Saturday, January 6, 2024                                 */
+/*    Modified:     Sunday, January 28, 2024                                  */
 /*    Description:  1526A (Seniors): Competition Code                         */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
@@ -48,20 +48,6 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  LeftMotor.spin(forward);
-  Left2.spin(forward);
-  RightMotor.spin(forward);
-  Right2.spin(forward);
-  wait(0.8, seconds);
-  LeftMotor.spin(reverse);
-  Left2.spin(reverse);
-  RightMotor.spin(reverse);
-  Right2.spin(reverse);
-  wait(1.2, seconds);
-  LeftMotor.stop();
-  Left2.stop();
-  RightMotor.stop();
-  Right2.stop();
 }
 
 /*---------------------------------------------------------------------------*/
