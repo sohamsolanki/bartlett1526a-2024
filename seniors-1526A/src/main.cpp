@@ -48,6 +48,22 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
+  LeftDou.set(true);
+  RightDou.set(true);
+  LeftMotor.spin(reverse);
+  Left2.spin(reverse);
+  RightMotor.spin(reverse);
+  Right2.spin(reverse);
+  wait(0.8, seconds);
+  LeftMotor.spin(forward);
+  Left2.spin(forward);
+  RightMotor.spin(forward);
+  Right2.spin(forward);
+  wait(1.2, seconds);
+  LeftMotor.stop();
+  Left2.stop();
+  RightMotor.stop();
+  Right2.stop();
 }
 
 /*---------------------------------------------------------------------------*/
