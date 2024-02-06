@@ -118,8 +118,8 @@ void usercontrol(void) {
     }
 
     // Calling drive code functions. //
-    setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
-    setRightDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
+    setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
+    setRightDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
 
     wait(20, msec);
   }
