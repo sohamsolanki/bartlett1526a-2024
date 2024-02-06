@@ -3,12 +3,12 @@ using namespace vex;
 extern brain Brain;
 
 // VEXcode devices
-extern motor Right1;
-extern motor Right2;
-extern motor_group Right3;
 extern motor Left1;
 extern motor Left2;
 extern motor_group Left3;
+extern motor Right1;
+extern motor Right2;
+extern motor_group Right3;
 extern motor Intake;
 extern digital_out Sol1;
 extern digital_out Sol2;

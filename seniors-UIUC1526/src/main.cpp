@@ -11,12 +11,12 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Right1               motor         1               
-// Right2               motor         2               
-// Right3               motor_group   3, 4            
-// Left1                motor         5               
-// Left2                motor         6               
-// Left3                motor_group   7, 8            
+// Left1                motor         1               
+// Left2                motor         2               
+// Left3                motor_group   3, 4            
+// Right1               motor         5               
+// Right2               motor         6               
+// Right3               motor_group   7, 8            
 // Intake               motor         9               
 // Sol1                 digital_out   A               
 // Sol2                 digital_out   B               
@@ -36,6 +36,12 @@ competition Competition;
 
 void pre_auton(void) {
   vexcodeInit();
+  Left1.setStopping(coast);
+  Left2.setStopping(coast);
+  Left3.setStopping(coast);
+  Right1.setStopping(coast);
+  Right2.setStopping(coast);
+  Right3.setStopping(coast);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -118,8 +124,8 @@ void usercontrol(void) {
     }
 
     // Calling drive code functions. //
-    setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
-    setRightDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
+    setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
+    setRightDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
 
     wait(20, msec);
   }
