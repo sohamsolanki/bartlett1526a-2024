@@ -7,6 +7,7 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"
+#include "gifclass.h"
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
@@ -85,7 +86,6 @@ void setRightDriveExpo (vex::directionType type, int percentage) {
 
 void usercontrol(void) {
   while (1) {
-
     // Intake code. //
     if (Controller1.ButtonR1.pressing()) {
       Intake.setVelocity(100, percent);
@@ -127,10 +127,16 @@ void usercontrol(void) {
     setLeftDriveExpo (vex::directionType::fwd, Controller1.Axis3.value());
     setRightDriveExpo (vex::directionType::fwd, Controller1.Axis2.value());
 
+    vex::brain Brain;
+    int count = 0;
+    vex::Gif gif("utopia.gif", 120, 0 );
+  
+    Brain.Screen.printAt( 5, 230, "render %d", count++ );
+    Brain.Screen.render();
+
     wait(20, msec);
   }
 }
-
 // do not touch!
 int main() {
   Competition.autonomous(autonomous);
