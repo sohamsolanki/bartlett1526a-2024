@@ -129,7 +129,7 @@ void usercontrol(void) {
 
     vex::brain Brain;
     int count = 0;
-    vex::Gif gif("utopia.gif", 25, 0 );
+    vex::Gif gif("utopia.gif", 0, 0 );
   
     Brain.Screen.printAt(5, 230, "render %d", count++ );
     Brain.Screen.render();
