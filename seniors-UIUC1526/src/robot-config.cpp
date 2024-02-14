@@ -9,7 +9,7 @@ brain  Brain;
 
 // VEXcode device constructors
 motor Left1 = motor(PORT1, ratio6_1, false);
-motor Left2 = motor(PORT2, ratio18_1, true);
+motor Left2 = motor(PORT2, ratio18_1, false);
 motor Left3MotorA = motor(PORT3, ratio6_1, false);
 motor Left3MotorB = motor(PORT4, ratio6_1, true);
 motor_group Left3 = motor_group(Left3MotorA, Left3MotorB);
