@@ -1,3 +1,21 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Left1                motor         1               
+// Left2                motor         2               
+// Left3                motor_group   3, 4            
+// Right1               motor         5               
+// Right2               motor         6               
+// Right3               motor_group   7, 8            
+// Intake               motor         9               
+// Sol1                 digital_out   A               
+// Sol2                 digital_out   B               
+// Sol3                 digital_out   C               
+// Sol4                 digital_out   D               
+// Sol5                 digital_out   E               
+// Sol6                 digital_out   F               
+// Controller1          controller                    
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
