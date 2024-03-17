@@ -5,10 +5,8 @@
 // [Name]               [Type]        [Port(s)]
 // Left1                motor         10              
 // Left2                motor         9               
-// Left3                motor_group   8, 7            
 // Right1               motor         20              
 // Right2               motor         19              
-// Right3               motor_group   18, 17          
 // Intake               motor         16              
 // Sol1                 digital_out   A               
 // Sol2                 digital_out   B               
@@ -17,6 +15,10 @@
 // Sol5                 digital_out   E               
 // Sol6                 digital_out   F               
 // Controller1          controller                    
+// Left3                motor         8               
+// Left4                motor         7               
+// Right3               motor         18              
+// Right4               motor         17              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -26,10 +28,10 @@ Drive chassis(
 ZERO_TRACKER_NO_ODOM,
 
 // Left Motors:
-motor_group(Left1, Left2, Left3),
+motor_group(Left1, Left2, Left3, Left4),
 
 //Right Motors:
-motor_group(Right1, Right2, Right3),
+motor_group(Right1, Right2, Right3, Right4),
 
 //Specify the PORT NUMBER of your inertial sensor, in PORT format (i.e. "PORT1", not simply "1"):
 PORT1,
