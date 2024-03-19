@@ -96,7 +96,6 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   default_constants();
-
   while(auto_started == false){            //Changing the names below will only change their names on the
     Brain.Screen.clearScreen();            //brain screen for auton selection.
     switch(current_auton_selection){       //Tap the brain screen to cycle through autons.
@@ -178,17 +177,42 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
+    // Intake code. //
+    if (Controller1.ButtonR1.pressing()) {
+      Intake.setVelocity(100, percent);
+      Intake.spin(forward);
+    } else if (Controller1.ButtonR2.pressing()) {
+      Intake.setVelocity(100, percent);
+      Intake.spin(reverse);
+    } else {
+      Intake.stop();
+    }
 
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
+    // Intake lift (solenoids). //
+    if (Controller1.ButtonRight.pressing()) {
+      Sol1.set(true);
+      Sol2.set(true);
+    }
+    if (Controller1.ButtonY.pressing()) {
+      Sol1.set(false);
+      Sol2.set(false);
+    }
 
-    //Replace this line with chassis.control_tank(); for tank drive 
-    //or chassis.control_holonomic(); for holo drive.
+    // Wings. //
+    if(Controller1.ButtonL1.pressing()) {
+      Sol3.set(true);
+      Sol4.set(true);
+    }
+    if (Controller1.ButtonL2.pressing()) {
+      Sol3.set(false);
+      Sol4.set(false);
+    }
+
+    // Hang release. //
+    if (Controller1.ButtonLeft.pressing()) {
+      Sol5.set(true);
+      Sol6.set(true);
+    }
     chassis.control_tank();
 
     wait(20, msec); // Sleep the task for a short amount of time to
