@@ -203,7 +203,7 @@ void usercontrol(void) {
       Sol3.set(true);
       Sol4.set(true);
     }
-    if (Controller1.ButtonL2.pressing()) {
+    if (Controller1.ButtonRight.pressing()) {
       Sol3.set(false);
       Sol4.set(false);
     }
