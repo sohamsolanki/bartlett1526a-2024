@@ -140,7 +140,7 @@ void autonomous(void) {
     case 0:
       drive_test(); //This is the default auton, if you don't select from the brain.
       break;        //Change these to be your own auton functions in order to use the auton selector.
-    case 1:         //Tap the screen to cycle through autons.
+    /* case 1:         //Tap the screen to cycle through autons.
       drive_test();
       break;
     case 2:
@@ -160,7 +160,7 @@ void autonomous(void) {
       break;
     case 7:
       holonomic_odom_test();
-      break;
+      break; */
  }
 }
 
