@@ -22,7 +22,7 @@ void drive_test(){
   chassis.turn_to_angle(5);
 }
 
-void turn_test(){
+/* void turn_test(){
   chassis.turn_to_angle(5);
   chassis.turn_to_angle(30);
   chassis.turn_to_angle(90);
@@ -74,3 +74,4 @@ void holonomic_odom_test(){
   chassis.holonomic_drive_to_point(0, 18, 270);
   chassis.holonomic_drive_to_point(0, 0, 0);
 }
+*/
