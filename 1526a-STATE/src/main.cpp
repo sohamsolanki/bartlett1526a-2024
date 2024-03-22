@@ -97,7 +97,7 @@ void pre_auton(void) {
   vexcodeInit();
   default_constants();
   while(auto_started == false){            //Changing the names below will only change their names on the
-    Brain.Screen.clearScreen();            //brain screen for auton selection.
+    /* Brain.Screen.clearScreen();            //brain screen for auton selection.
     switch(current_auton_selection){       //Tap the brain screen to cycle through autons.
       case 0:
         Brain.Screen.printAt(50, 50, "Drive Test");
@@ -130,7 +130,7 @@ void pre_auton(void) {
     } else if (current_auton_selection == 8){
       current_auton_selection = 0;
     }
-    task::sleep(10);
+    task::sleep(10); */
   }
 }
 
@@ -173,45 +173,7 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-void robotTurn1(void) {
-  Left1.spin(forward);
-  Left2.spin(forward);
-  Left3.spin(forward);
-  Left4.spin(forward);
-  Right1.spin(reverse);
-  Right2.spin(reverse);
-  Right3.spin(reverse);
-  Right4.spin(reverse);
-  wait(0.7, sec);
-  Left1.stop();
-  Left2.stop();
-  Left3.stop();
-  Left4.stop();
-  Right1.stop();
-  Right2.stop();
-  Right3.stop();
-  Right4.stop();
-}
 
-void robotTurn2(void) {
-  Left1.spin(reverse);
-  Left2.spin(reverse);
-  Left3.spin(reverse);
-  Left4.spin(reverse);
-  Right1.spin(forward);
-  Right2.spin(forward);
-  Right3.spin(forward);
-  Right4.spin(forward);
-  wait(0.7, sec);
-  Left1.stop();
-  Left2.stop();
-  Left3.stop();
-  Left4.stop();
-  Right1.stop();
-  Right2.stop();
-  Right3.stop();
-  Right4.stop();
-}
 
 void usercontrol(void) {
   // User control code here, inside the loop
