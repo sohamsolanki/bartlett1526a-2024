@@ -18,6 +18,7 @@ void odom_constants(){
 
 
 void drive_test(){
+  /*
   // TURNING // 
   //left side
   Left1.spin(forward);
@@ -72,7 +73,119 @@ void drive_test(){
   chassis.drive_distance(10);
   // back
   chassis.drive_distance(-10);
+  */
+
+  Intake.setVelocity(100, percent);
+  Intake.spin(forward);
+  chassis.drive_distance(7);
+  chassis.drive_distance(-8.5);
+  chassis.drive_distance(-7.5);
+  chassis.drive_distance(-8);
+
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(.7, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+
+  chassis.drive_distance(-16);
+
+  wait(.1, sec);
+
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(.8, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+
+  wait(.2, sec);
+
+  chassis.drive_distance(-15);
+  chassis.drive_distance(15);
+
+  wait(.1, sec);
+
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(2.65, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+
+  chassis.drive_distance(12);
+  chassis.drive_distance(-6);
+
+  wait(.1, sec);
+
+   //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(1.4, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+
   
+
+
+
+
+  Intake.stop();
+
+
 }
 
 /* void turn_test(){
