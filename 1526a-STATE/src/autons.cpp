@@ -18,15 +18,20 @@ void odom_constants(){
 
 
 void drive_test(){
+  //left side
   Left1.spin(forward);
   Left2.spin(forward);
   Left3.spin(forward);
   Left4.spin(forward);
+
+  //right side
   Right1.spin(reverse);
   Right2.spin(reverse);
   Right3.spin(reverse);
   Right4.spin(reverse);
+
   wait(1.4, sec);
+
   Left1.stop();
   Left2.stop();
   Left3.stop();
@@ -35,16 +40,23 @@ void drive_test(){
   Right2.stop();
   Right3.stop();
   Right4.stop();
+
   wait(0.2, seconds);
+
+  //left side
   Left1.spin(reverse);
   Left2.spin(reverse);
   Left3.spin(reverse);
   Left4.spin(reverse);
+  
+  //right side
   Right1.spin(forward);
   Right2.spin(forward);
   Right3.spin(forward);
   Right4.spin(forward);
+
   wait(1.4, sec);
+
   Left1.stop();
   Left2.stop();
   Left3.stop();
