@@ -18,6 +18,7 @@ void odom_constants(){
 
 
 void drive_test(){
+  // TURNING // 
   //left side
   Left1.spin(forward);
   Left2.spin(forward);
@@ -48,7 +49,7 @@ void drive_test(){
   Left2.spin(reverse);
   Left3.spin(reverse);
   Left4.spin(reverse);
-  
+
   //right side
   Right1.spin(forward);
   Right2.spin(forward);
@@ -65,6 +66,12 @@ void drive_test(){
   Right2.stop();
   Right3.stop();
   Right4.stop();
+
+  // Drive FORWARD and BACK //
+  // forward
+  chassis.drive_distance(10);
+  // back
+  chassis.drive_distance(-10);
   
 }
 
