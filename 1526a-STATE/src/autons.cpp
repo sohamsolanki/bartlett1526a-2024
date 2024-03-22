@@ -16,10 +16,81 @@ void odom_constants(){
   chassis.drive_settle_error = 3;
 }
 
+void robotTurn1(void) {
+  Left1.spin(forward);
+  Left2.spin(forward);
+  Left3.spin(forward);
+  Left4.spin(forward);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  Right4.spin(reverse);
+  wait(0.7, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+}
+
+void robotTurn2(void) {
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(0.7, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+}
+
 void drive_test(){
-  // chassis.drive_distance(10);
-  // chassis.drive_distance(-10);
-  // chassis.turn_to_angle(0.5,3);
+  Left1.spin(forward);
+  Left2.spin(forward);
+  Left3.spin(forward);
+  Left4.spin(forward);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  Right4.spin(reverse);
+  wait(0.7, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Left4.spin(reverse);
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  Right4.spin(forward);
+  wait(0.7, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Left4.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+  Right4.stop();
   
 }
 
