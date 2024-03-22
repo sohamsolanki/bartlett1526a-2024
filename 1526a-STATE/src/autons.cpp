@@ -65,7 +65,7 @@ void drive_test(){
   Right2.spin(reverse);
   Right3.spin(reverse);
   Right4.spin(reverse);
-  wait(3, sec);
+  wait(1.5, sec);
   Left1.stop();
   Left2.stop();
   Left3.stop();
@@ -83,7 +83,7 @@ void drive_test(){
   Right2.spin(forward);
   Right3.spin(forward);
   Right4.spin(forward);
-  wait(3, sec);
+  wait(1.5, sec);
   Left1.stop();
   Left2.stop();
   Left3.stop();
