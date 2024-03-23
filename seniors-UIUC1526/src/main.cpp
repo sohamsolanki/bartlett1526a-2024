@@ -70,12 +70,12 @@ void pre_auton(void) {
 void autonomous(void) {
   Intake.setVelocity(100, percent);
   Intake.spin(forward);
-  Left1.setVelocity(19, percent);
-  Left2.setVelocity(19, percent);
-  Left3.setVelocity(19, percent);
-  Right1.setVelocity(19, percent);
-  Right2.setVelocity(19, percent);
-  Right3.setVelocity(19, percent);
+  Left1.setVelocity(19.5, percent);
+  Left2.setVelocity(19.5, percent);
+  Left3.setVelocity(19.5, percent);
+  Right1.setVelocity(19.5, percent);
+  Right2.setVelocity(19.5, percent);
+  Right3.setVelocity(19.5, percent);
   
   // chassis.drive_distance(7);
   Left1.spin(forward);
