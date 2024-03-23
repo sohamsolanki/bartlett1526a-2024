@@ -68,8 +68,160 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
+  Intake.setVelocity(100, percent);
+  Intake.spin(forward);
+  Left1.setVelocity(19, percent);
+  Left2.setVelocity(19, percent);
+  Left3.setVelocity(19, percent);
+  Right1.setVelocity(19, percent);
+  Right2.setVelocity(19, percent);
+  Right3.setVelocity(19, percent);
+  
+  // chassis.drive_distance(7);
+  Left1.spin(forward);
+  Left2.spin(forward);
+  Left3.spin(forward);
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(0.7, seconds);
+  // chassis.drive_distance(-8.5);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(0.75, seconds);
+  // chassis.drive_distance(-7.5);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(0.75, seconds);
+  // chassis.drive_distance(-8);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(0.6, seconds);
 
-  }
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(.3, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+
+  // chassis.drive_distance(-16);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(1.6, seconds);
+
+  wait(.1, sec);
+
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(.3, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+
+  wait(.2, sec);
+
+  // chassis.drive_distance(-15);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(1.3, seconds);
+  // chassis.drive_distance(15);
+  Left1.spin(forward);
+  Left2.spin(forward);
+  Left3.spin(forward);
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(1.3, seconds);
+
+  wait(.1, sec);
+
+  //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(1.2, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop();
+
+  // chassis.drive_distance(12);
+  Left1.spin(forward);
+  Left2.spin(forward);
+  Left3.spin(forward);
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(1.2, seconds);
+  // chassis.drive_distance(-6);
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  Right1.spin(reverse);
+  Right2.spin(reverse);
+  Right3.spin(reverse);
+  wait(0.6, seconds);
+
+   //left side
+  Left1.spin(reverse);
+  Left2.spin(reverse);
+  Left3.spin(reverse);
+  //right side
+  Right1.spin(forward);
+  Right2.spin(forward);
+  Right3.spin(forward);
+  wait(1.4, sec);
+  Left1.stop();
+  Left2.stop();
+  Left3.stop();
+  Right1.stop();
+  Right2.stop();
+  Right3.stop(); }
 
 /*---------------------------------------------------------------------------*/
 /*                              User Control Task                            */
